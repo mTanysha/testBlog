@@ -6,45 +6,42 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body> 
-
-	<header>
-		<div class="header-container">
-			<div class="logo">
-				<span>My Blog<span>
+	<div class ="container_wrapp">	
+		<header>
+			<div class="header-container">
+				<div class="logo">
+					<span>My Blog<span>
+				</div>
+				<input type="checkbox" id="menu-checkbox">
+				<nav role="navigation">
+					<label for="menu-checkbox" class="toggle-button" data-open="MENU" data-close="CLOSE" onclick></label>
+					<ul class="main-menu">
+						<!--<li><a href="#">Home</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Blog</a></li>-->
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contacts</a></li>
+					</ul>
+				</nav>
+			</div>		
+		</header>
+		<main>
+			<div class="hello__block">
+				<h1>Helo there!</h1>	
 			</div>
-			<input type="checkbox" id="menu-checkbox">
-			<nav role="navigation">
-				<label for="menu-checkbox" class="toggle-button" data-open="MENU" data-close="CLOSE" onclick></label>
-				<ul class="main-menu">
-					<!--<li><a href="#">Home</a></li>
-					<li><a href="#">Portfolio</a></li>
-					<li><a href="#">Blog</a></li>-->
-					<li><a href="#">About us</a></li>
-					<li><a href="#">Contacts</a></li>
-				</ul>
-			</nav>
-		</div>		
-	</header>
-	<main>
-		<div class="hello__block">
-			<h1>Helo there!</h1>	
-		</div>
-		<div class="content">
-			<section> 
-          		<article> 
-          			<h1>Привет!</h1> 
-          			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus excepturi totam vitae culpa architecto autem, eos eligendi quos accusantium cupiditate quo numquam, quaerat officiis non id, impedit laborum illum explicabo?</p> <br>
-          			<p>published: 18.05.2019, 17:57</p>
-            	</article>
-        	</section>
-        	<section> 
-          		<article> 
-          			<h1>Привет!</h1> 
-          			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus excepturi totam vitae culpa architecto autem, eos eligendi quos accusantium cupiditate quo numquam, quaerat officiis non id, impedit laborum illum explicabo?</p> <br>
-          			<p>published: 18.05.2019, 17:57</p>
-            	</article>
-        	</section>
-		</div>
-     </main>
+			<div class="content">
+				<section> 
+				{% for post in posts %}
+					<article> 
+						<h1>{{ post.title }}</h1> 
+						<p>{{ post.text|linebreaksbr }}</p> <br>
+						<p>published: {{ post.published_date }}</p>
+					</article>
+				{% endfor %}
+				</section>
+				
+			</div>
+		</main>
+	</div>
 </body>
 </html>

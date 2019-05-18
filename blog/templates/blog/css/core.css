@@ -1,0 +1,18 @@
+body {
+	background: url(../img/1.jpg);
+	font-family: 'Poppins', sans-serif;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style: none;
+	display: flex;
+}
+
+a {
+	
+}

@@ -2,14 +2,19 @@
 
 {% block content %}
     <div class="content">
-        <div class="post">
-            <h1>{{ post.title }}</h1>
-            <p>{{ post.text|linebreaksbr }}</p>
-            {% if post.published_date %}
-                <div class="date">
-                    {{ post.published_date }}
-                </div>
-            {% endif %}
-        </div>
+        {% if user.is_authenticated %}
+            <a href="{% url 'post_edit' pk=post.pk  %}" class="mdc-button" aria-label="add">
+            <span>Редактировать пост</span>
+            </a>
+            <div class="post">
+                <h1>{{ post.title }}</h1>
+                <p>{{ post.text|linebreaksbr }}</p>
+                {% if post.published_date %}
+                    <div class="date">
+                        {{ post.published_date }}
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endblock %}

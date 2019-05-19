@@ -13,6 +13,13 @@ li {
     display: flex;
 }
 
-a {}
+.container_wrapp {
+    margin: auto;
+    height: 1100px;
+    width: 1042px;
+    left: 50%;
+}
 
-.container_wrapp {}
+p {
+    padding: 20px;
+}

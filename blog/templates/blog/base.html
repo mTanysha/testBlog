@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title> testBlog</title>
+	<link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body> 
+	<div class ="container_wrapp">	
+		<header>
+			<div class="header-container">
+				<div class="logo">
+					<span> <a href="/">My Blog</a></span>
+				</div>
+				<input type="checkbox" id="menu-checkbox">
+				<nav role="navigation">
+					<label for="menu-checkbox" class="toggle-button" data-open="MENU" data-close="CLOSE" onclick></label>
+					<ul class="main-menu">
+						<!--<li><a href="#">Home</a></li>
+						<li><a href="#">Portfolio</a></li>
+						<li><a href="#">Blog</a></li>-->
+						<li><a href="#">About us</a></li>
+						<li><a href="#">Contacts</a></li>
+					</ul>
+				</nav>
+			</div>		
+		</header>
+		<main>
+            {% block content %}
+            {% endblock %}
+		</main>
+	</div>
+</body>
+</html>

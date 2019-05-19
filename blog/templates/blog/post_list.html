@@ -1,47 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title> testBlog</title>
-	<link rel="stylesheet" href="css/style.css">
-</head>
-<body> 
-	<div class ="container_wrapp">	
-		<header>
-			<div class="header-container">
-				<div class="logo">
-					<span>My Blog<span>
-				</div>
-				<input type="checkbox" id="menu-checkbox">
-				<nav role="navigation">
-					<label for="menu-checkbox" class="toggle-button" data-open="MENU" data-close="CLOSE" onclick></label>
-					<ul class="main-menu">
-						<!--<li><a href="#">Home</a></li>
-						<li><a href="#">Portfolio</a></li>
-						<li><a href="#">Blog</a></li>-->
-						<li><a href="#">About us</a></li>
-						<li><a href="#">Contacts</a></li>
-					</ul>
-				</nav>
-			</div>		
-		</header>
-		<main>
-			<div class="hello__block">
-				<h1>Helo there!</h1>	
-			</div>
-			<div class="content">
-				<section> 
-				{% for post in posts %}
-					<article> 
-						<h1>{{ post.title }}</h1> 
-						<p>{{ post.text|linebreaksbr }}</p> <br>
-						<p>published: {{ post.published_date }}</p>
-					</article>
-				{% endfor %}
-				</section>
-				
-			</div>
-		</main>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+	<div class="hello__block">
+		<h1>Helo there!</h1>	
 	</div>
-</body>
-</html>
+	<div class="content">
+		{% for post in posts %}
+			<article> 
+				<h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+				<p>{{ post.text|linebreaksbr }}</p>
+				<p>published: {{ post.published_date }}</p>
+			</article>	
+		{% endfor %}	
+	</div>
+{% endblock %}
